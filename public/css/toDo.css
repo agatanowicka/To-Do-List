@@ -1,0 +1,79 @@
+body{
+    background-image: url(https://ekai.pl/wp-content/uploads/2019/10/%C5%BConkile-1024x499.jpg) ;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.conteiner{
+    border-radius: 10px;
+}
+
+.allElements{
+    width: 50%;
+    margin:10% auto;
+    font-size: 1.5rem;
+}
+
+.date{
+    background-color:rgba(82, 81, 81, 0.719);
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-align: center;
+    color: #ecfcff;
+}
+
+.list{
+    background-color:rgba(226, 222, 222, 0.4);
+    color: #5d5d5d;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.position{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.task{
+    border: none;
+    margin: 0px;
+    height: 40px;
+    margin:20px; 
+}
+
+.checkboxPlusTask{
+    margin-bottom: 12px;
+    border-bottom-color: rgba(82, 81, 81);
+    padding:0px;
+    color: #232423;
+}
+
+input[type=checkbox]{
+    margin: 15px;  
+}
+
+input[type=checkbox]:checked +p{
+    text-decoration: line-through;
+}
+
+.deleteButton{
+    color:#5d5d5d;
+}
+
+.newItem{
+    text-align: center;
+}
+
+input[type=text]{
+    width: 60%;
+    border-radius: 10px;
+    text-align: center;
+    color: #5d5d5d;
+}
+
+.addButton{
+    border-radius: 100%;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
