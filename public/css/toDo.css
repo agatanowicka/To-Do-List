@@ -1,4 +1,4 @@
-body{
+.listPage{
     background-image: url(https://ekai.pl/wp-content/uploads/2019/10/%C5%BConkile-1024x499.jpg) ;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -75,5 +75,17 @@ input[type=text]{
 .addButton{
     border-radius: 100%;
     font-size: 1.2rem;
+    font-weight: bold;
+}
+.errorPage{
+    background-color: rgb(122, 241, 241);
+}
+.error{
+    text-align: center;
+    margin-top:20%;
+}
+.errorHeading{
+    color: rgb(2, 46, 71);
+    font-size: 3rem;
     font-weight: bold;
 }

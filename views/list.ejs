@@ -5,7 +5,7 @@
     <script src = "https://kit.fontawesome.com/cf87eef876.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/x-icon" href="icon/favicon.ico" />
 </head>
-<body>
+<body class="listPage">
     <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity = "sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin = "anonymous">
     <script src = "https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -25,35 +25,35 @@
         </div>
         <div class = "conteiner list">
 
-            <% for(var i = 0; i < taskList.length; i++){ %>
+          <% newListItems.forEach(function(item){ %>
                 <div class = "conteiner task position">
-                    <button type = "button" class = "btn btn-outline-light btn-sm deleteButton" onclick = "sendDelete('<%= taskList[i].name %>')">
+                    <button type = "button" class = "btn btn-outline-light btn-sm deleteButton" onclick = "deleteItem('<%= item._id %>')">
                         <i class = "fas fa-trash fa-1.8x"></i>
                     </button>
                     <label class = "container checkboxPlusTask position">
-                        <input class = "checkbox" type = "checkbox" onclick = "send('<%= taskList[i].name %>')" id = <%= i %>
-                            <% if(taskList[i].isDone === true) { %> <%= checked = "checked" %> <% } %>>
-                                <p> <%= taskList[i].name %> </p>
+                        <input class = "checkbox" type = "checkbox" onclick = "changeCheckbox('<%= item._id %>')"
+                            <% if(item.isDone === true){ %> <%= checked = "checked" %> <% } %> >
+                                <p> <%= item.name %> </p>
                         <span class = "checkmark"></span>
                     </label>
                 </div>
-            <% } %>
+            <% }) %>
             <form class = "newItem" action = "/" method = "POST" autocomplete = "off">
-                <input type = "text" name = "newItem" placeholder = "New item">
+                <input type = "text" name = "taskName" placeholder = "New item">
                 <button type = "submit button" class = "btn btn-dark addButton" name = "button">+</button>
             </form>
         </div>
     </div>
     <script>
-        const send = function (taskName) {
+        const changeCheckbox = function (itemId) {
             const http = new XMLHttpRequest();
-            const url = '/' + taskName;
+            const url = '/' + itemId;
             http.open("GET", url);
             http.send();
         };
-        const sendDelete = function (taskName) {
+        const deleteItem = function (itemId) {
             const http = new XMLHttpRequest();
-            const url = '/' + taskName;
+            const url = '/' + itemId;
             http.open("DELETE", url);
             http.send();
             window.location.reload(true);
