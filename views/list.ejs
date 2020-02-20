@@ -32,7 +32,7 @@
                     </button>
                     <label class = "container checkboxPlusTask position">
                         <input class = "checkbox" type = "checkbox" onclick = "changeCheckbox('<%= item._id %>')"
-                            <% if(item.isDone === true){ %> <%= checked = "checked" %> <% } %> >
+                            <% if(item.isDone === true){ %> checked = "checked" <% } %> >
                                 <p> <%= item.name %> </p>
                         <span class = "checkmark"></span>
                     </label>

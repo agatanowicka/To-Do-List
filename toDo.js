@@ -37,10 +37,6 @@ app.get("/", function (req, res) {
     });
 });
 
-app.get("/error", function(req, res){
-
-});
-
 app.get("/:checkbox", function (req, res) {
     itemModel.findById(req.params.checkbox, function (err, itemToChange){
         if (err) {
@@ -85,8 +81,7 @@ app.post("/", function (req, res) {
     item.save({}, function (err, savedItem) {
         if (err) {
             console.log(`error while processing`);
-            // TODO return  res.redirect('PAGE_ERROR');
-            return res.redirect('/');
+            return res.redirect('/errorpage.html');
         }
         else {
             console.log(`saved object with id: ${savedItem._id}`);
