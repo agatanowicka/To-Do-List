@@ -33,25 +33,26 @@ const itemModel = mongoose.model("item", itemSchema);
 
 app.get("/", function (req, res) {
     itemModel.find({}, function (err, foundItems) {
-        res.render("list", { day: todayDate, listTitle: "To-Do List", newListItems: foundItems});
+        res.render("list", {
+            day: todayDate,
+            listTitle: "To-Do List",
+            newListItems: foundItems
+        });
     });
 });
 
 app.get("/:checkbox", function (req, res) {
-    itemModel.findById(req.params.checkbox, function (err, itemToChange){
+    itemModel.findById(req.params.checkbox, function (err, itemToChange) {
         if (err) {
-            console.log(`error while processing`);
             return res.redirect('/errorpage.html');
         }
         else {
-            itemToChange.isDone = ! itemToChange.isDone;
-            itemToChange.save({}, function(err, updatedItem) {
-                if(err) {
-                    console.log(`error while processing`);
+            itemToChange.isDone = !itemToChange.isDone;
+            itemToChange.save({}, function (err, updatedItem) {
+                if (err) {
                     return res.redirect('/errorpage.html');
                 }
                 else {
-                    console.log(`successfully updated object with id: ${updatedItem._id}`);
                     res.redirect('/');
                 }
             });
@@ -62,11 +63,9 @@ app.get("/:checkbox", function (req, res) {
 app.delete("/:delete", function (req, res) {
     itemModel.findByIdAndRemove(req.params.delete, function (err, deletedItem) {
         if (err) {
-            console.log(`error while processing`);
             return res.redirect('/errorpage.html');
         }
         else {
-            console.log(`deleted object with id: ${deletedItem._id}`);
             res.redirect('/');
         }
     })
@@ -80,15 +79,12 @@ app.post("/", function (req, res) {
     });
     item.save({}, function (err, savedItem) {
         if (err) {
-            console.log(`error while processing`);
             return res.redirect('/errorpage.html');
         }
         else {
-            console.log(`saved object with id: ${savedItem._id}`);
             return res.redirect('/');
         }
     });
-
 });
 
 app.listen(3000, function () {
