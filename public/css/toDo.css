@@ -42,23 +42,9 @@
     margin:20px; 
 }
 
-.checkboxPlusTask{
-    margin-bottom: 12px;
-    border-bottom-color: rgba(82, 81, 81);
-    padding:0px;
-    color: #232423;
-}
-
-input[type=checkbox]{
-    margin: 15px;  
-}
-
-input[type=checkbox]:checked +p{
-    text-decoration: line-through;
-}
-
 .deleteButton{
     color:#5d5d5d;
+    margin-right: 10px;
 }
 
 .newItem{
@@ -75,17 +61,5 @@ input[type=text]{
 .addButton{
     border-radius: 100%;
     font-size: 1.2rem;
-    font-weight: bold;
-}
-.errorPage{
-    background-color: rgb(122, 241, 241);
-}
-.error{
-    text-align: center;
-    margin-top:20%;
-}
-.errorHeading{
-    color: rgb(2, 46, 71);
-    font-size: 3rem;
     font-weight: bold;
 }
